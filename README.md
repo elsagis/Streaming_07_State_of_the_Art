@@ -63,6 +63,8 @@ remove last characters from string: https://careerkarma.com/blog/python-remove-c
 round floats to 1 decimal place: https://stackoverflow.com/questions/3400965/getting-only-1-decimal-place
 how to split a new line: https://www.freecodecamp.org/news/python-new-line-and-how-to-python-print-without-a-newline/
 Producer Vs Consumer - Module 7 Screenshots
+![Consumer_RabbitMq_Anacond_buildings](https://user-images.githubusercontent.com/105325747/221481606-d2980325-2eef-4824-ab9a-00bb7b8ea6e0.png)
+
 
 # sources
 <https://github.com/microsoft/USBuildingFootprints/blob/master/README.md>
