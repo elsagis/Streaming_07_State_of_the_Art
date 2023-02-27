@@ -5,7 +5,8 @@ Author: Elsa Ghirmazion
 Date: February 24, 2023 
 Class: Streaming Data Assignment: Module 07
 
-This program uses 1 producer, 3 task queues (RabbitMQ), 1 consumer, and 3 callbacks. It reads data from the       xxxxxx file for .
+This program uses 1 producer, 3 task queues (RabbitMQ), 1 consumer, and 3 callbacks. It reads data from the USBuildinggsFootprints file(public)
+ # This data is freely available and licenced by Microsoft under the Open Data Commons Open Database License(ODbL). This data is faked to be suitable for the programming.
 
 Instructions on how to run the program
 Before you begin, adjust your settings in Visual Studio and set-up your conda environment
@@ -22,37 +23,32 @@ Run producer.py file "python _producer.py" (say y to monitor RabbitMQ queues)
 Run _consumer.py file "python _consumer.py"
 Assignment Details
 Using a ()
-When running a barbeque smoker, we monitor the temperatures of the smoker and the food to ensure everything turns out tasty. Over long cooks, the following events can happen:
-
-The smoker temperature can suddenly decline.
-The food temperature doesn't change. At some point, the food will hit a temperature where moisture evaporates. It will stay close to this temperature for an extended period of time while the moisture evaporates (much like humans sweat to regulate temperature). We say the temperature has stalled.
-
-Sensors
-We have temperature sensors track temperatures and record them to generate a history of both (a) the smoker and (b) the food over time. These readings are an example of time-series data, and are considered streaming data or data in motion.
+When running a Buildings in usa, we monitor the number of buildings of the states increase to ensure in the specified range of number to claisify as small, medium and large. Provides necesary information.
+these readings are an example of stored data but with regular monitoring of the increase of the number of buildings the states might move to the next classification.And are considered streaming data or data in motion.
 
 Streaming Data
 Our thermometer records three temperatures every thirty seconds (two readings every minute). The three temperatures are:
 
-the temperature of the smoker itself.
-the temperature of the first of two foods, Food A.
-the temperature for the second of two foods, Food B.
 Significant Events
 Condition to monitor/we want to know if:
 
-If smoker temp decreases by 15 F or more in 2.5 min (or 5 readings) --> smoker alert! If food temp change in temp is 1 F or less in 10 min (or 20 readings) --> food stall alert!
+If small number of buildings increases by 10,000 or more in 10 or more readings--> small_deque alert 'Small number of buildings! 
+If numbner of buildings increase by 50,000 or more Alert"Meddium number of buildings"! and the state is classified as Medium.
+If number of buildings change by 300,000 or more the state is getting classified as Large. --> Alert " Large number of buildings"!
 
 Smart System
 We will use Python to:
 
-Simulate a streaming series of temperature readings from our smart smoker and two foods. Create a producer to send these temperature readings to RabbitMQ. Create three consumer processes, each one monitoring one of the temperature streams. Perform calculations to determine if a significant event has occurred.
+Simulate a streaming series of number ofbuildings readings from our csv live streaming from data server. 
+Create a producer to send the number of buildings readings to RabbitMQ. Create three consumer processes, each one monitoring one of the number of buildings streams. Perform calculations to determine if a significant event has occurred.
 
 Windowing
-For more on windowing, read https://softwaremill.com/windowing-in-big-data-streams-spark-flink-kafka-akka/Links to an external site. Smoker time window = 2.5 mins Food time window = 10 mins How many temperature readings are in the smoker time window? At one reading every 1/2 minute, the smoker deque max length is 5 (2.5 min * 1 reading/0.5 min) How many temperature readings are in the food time window? At one reading every 1/2 minute, the food deque max length is 20 (10 min * 1 reading/0.5 min)
+For more on windowing, read https://softwaremill.com/windowing-in-big-data-streams-spark-flink-kafka-akka/Links to an external site. 
 
 Deque
 For more abut deques, read https://docs.python.org/3/library/collections.html#collections.deque Links to an external site.(only the description of the deque class) We want to create a deque of limited size (to hold just the last n readings) - it'll act like a continuous queue The deque will hold only the number of readings we need for the time window of interest.
 
-Code example: from collections import deque smoker_deque = deque(maxlen=5) # limited to 5 items (the 5 most recent readings)
+Code example: from collections import deque small_deque = deque(maxlen=5) # limited to 5 items (the 5 most recent readings)
 
 References
 Producer
@@ -66,4 +62,7 @@ split string: https://www.w3schools.com/python/ref_string_split.asp
 remove last characters from string: https://careerkarma.com/blog/python-remove-character-from-string/#:~:text=You%20can%20remove%20a%20character,the%20string%20without%20a%20replacement.
 round floats to 1 decimal place: https://stackoverflow.com/questions/3400965/getting-only-1-decimal-place
 how to split a new line: https://www.freecodecamp.org/news/python-new-line-and-how-to-python-print-without-a-newline/
-Producer - Module 7 Screenshots
+Producer Vs Consumer - Module 7 Screenshots
+
+# sources
+<https://github.com/microsoft/USBuildingFootprints/blob/master/README.md>
