@@ -65,8 +65,8 @@ how to split a new line: https://www.freecodecamp.org/news/python-new-line-and-h
 Producer Vs Consumer - Module 7 Screenshots
 ![Consumer_RabbitMq_Anacond_buildings](https://user-images.githubusercontent.com/105325747/221481606-d2980325-2eef-4824-ab9a-00bb7b8ea6e0.png)
 ![Consumer RabbitMQBuilding](https://user-images.githubusercontent.com/105325747/221728621-d638f745-b5a3-4828-a0ef-4a7f22e004c9.png)
+![ConsumerBuilding](https://user-images.githubusercontent.com/105325747/221729134-1bfb39e3-ca72-440b-9436-00822cc3645c.png)
 
-![Consumer_RabbitMq_Anacond_buildings](https://user-images.githubusercontent.com/105325747/221728907-1be60370-cac0-4002-9614-7e174a9018fb.png)
 
 # sources
 <https://github.com/microsoft/USBuildingFootprints/blob/master/README.md>
