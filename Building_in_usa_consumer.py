@@ -7,6 +7,7 @@
 import pika
 import sys
 import pickle
+import time
 from collections import deque
 ###################################################################################################################################
 # Define variables
@@ -17,17 +18,12 @@ medium_deque = "02-medium"
 large_deque = "03-large"
 show_offer = True  # (RabbitMQ Server option - T=on, F=off)
 ####################################################################################################################################
-# Limit small readings to last 2.5 minutes/5 readings
-small_deque = "01-small"
+# Limit small readings to last 5 readings
 small_deque = deque(maxlen = 14)
-# limit medium readings to last 10 minutes/20 readings
-medium_deque = "02-medium"
+# limit medium readings to last 20 readings
 medium_deque = deque(maxlen = 28)
-# limit large readings to last 2 minutes/8 readings
-large_deque = "03-large"
+# limit large readings to last 8 readings
 large_deque = deque(maxlen=8)
-
-
 ######################################################################################################################################
 # define a callback function to be called when a message is received from the Building_in_usa
 def small_callback(ch, method, properties, body):
@@ -128,7 +124,7 @@ def large_callback(ch, method, properties, body):
         if large_number_of_buildings_last - large_number_of_buildings_current < 300000:
                 # send alert if large number of buildings has increased
                 print(f"Large number of buildings! Large number of buildings has increased  in the last 10 readings from {large_number_of_buildings_last} to {large_number_of_buildings_current}")
-        else: # else print the current temp
+        else: # else print the current number of buildings
                 print(f"Current large number of buildings is {large_number_of_buildings_current}")
     else: # else print the current number of buildings
             print(f"Current large number of buildings is {large_number_of_buildings_current}")
