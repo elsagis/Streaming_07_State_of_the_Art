@@ -12,7 +12,7 @@ import webbrowser
 import socket
 import csv
 import time
-
+#################################################################################################
 def offer_rabbitmq_admin_site():
     """Offer to open the RabbitMQ Admin website"""
     if show_offer:True

@@ -62,7 +62,7 @@ def small_callback(ch, method, properties, body):
                 print(f"Small Alert! Number of building  has increased 10,000  or more numbers from {small_number_of_buildins_last} to {small_number_of_buildings_current}")
             else: # else print the current number of building
                 print(f"Current small number of buildings is {small_number_of_buildings_current}")
-        else: # print current temp if there are less than 5 readings
+        else: # print current number of buildings if there are less than 5 readings
             print(f"Current small number of buildings is {small_number_of_buildings_current}")
 ###############################################################################################################################################
 # define a callback function to be called when a message is received from 02_medium
@@ -78,7 +78,7 @@ def medium_callback(ch, method, properties, body):
     # add message to deck only if a number of buildings has been recorded
     if isinstance(message[1], float):
         medium_deque.appendleft(message)
-        # only perform checks and send readings when tempuratures are recorded
+        # only perform checks and send readings when number of buildings are recorded
         # find first item in deque
         cur_medium_deque_number_of_buildings = medium_deque[0]
         # get the current number of buildings of medium
@@ -109,13 +109,13 @@ def large_callback(ch, method, properties, body):
     ch.auto_ack(delivery_tag=method.delivery_tag)
     # convert message from binary to tuple
     message = pickle.loads(body)
-    # add message to deck only if a temp has been recorded
+    # add message to deck only if a number of buildings has been recorded
     if isinstance(message[1], float):
         large_deque.appendleft(message)
-        # only perform checks and send readings when tempuratures are recorded
+        # only perform checks and send readings when number of buildings are recorded
         # find first item in deque
         cur_large_deque_number_of_buildings = large_deque[0]
-        # get the current temperature of food b
+        # get the current temperature of large number of buildings
         large_number_of_buildings_current = cur_large_deque_number_of_buildings[1]
    
         # find last item in deque
