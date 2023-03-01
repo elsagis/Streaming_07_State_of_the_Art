@@ -13,6 +13,9 @@ from collections import deque
 # Define variables
 host = "localhost"
 csv_file = "Buildings_in_usa.csv"
+queue1 = "01-small"
+queue2 = "02-medium"
+queue3 = "03-large
 small_deque = "01-small"
 medium_deque = "02-medium"
 large_deque = "03-large"
